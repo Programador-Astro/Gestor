@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/logistica/home.css">
+    <title>Inicio</title>
+</head>
+<body>
+    <h1>Bem-vindo, {{ current_user.user }}!</h1>
+    
+    <section class="menu_main">
+        <form action="{{url_for('logistica.area_notas')}}"> <button class="btt_menu_main">Area de Notas</button> </form>
+        <form action="{{url_for('logistica.area_check_list')}}"> <button class="btt_menu_main">Area de Check-List</button> </form>
+    </section>
+    
+</body>
+
+</html>
