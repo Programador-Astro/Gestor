@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template
 from flask_login import LoginManager
 from sqlalchemy import text
-
+from dotenv import load_dotenv
 import os
 import pandas as pd
 from app.db import db
@@ -11,6 +11,13 @@ app = Flask(__name__)
 lm = LoginManager(app)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
+load_dotenv()
+
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL') 
+app.config['SQLALCHEMY_BINDS'] = {'estoque_producao':'mysql+pymysql://admin:226226uy@astrocode.cdee0eaoc82b.us-east-2.rds.amazonaws.com:3306/estoque_producao'}
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 
 
 #Informando o flask qual é minha pasta padrão para upload de arquivos
