@@ -1,3 +1,15 @@
+# Ignorar ambiente virtual
 venv/
+
+# Ignorar arquivos de cache do Python
 __pycache__/
+*.py[cod]
+
+# Ignorar arquivos de ambiente
 .env
+
+# Ignorar outros arquivos indesejados
+*.sqlite3
+*.log
+*.bak
+.DS_Store
