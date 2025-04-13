@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Italiana', sans-serif;
+}
+
+body {
+    background-color: #0C2538;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+    width: 100vw;
+    place-items: center;
+}
+
+.titles {
+    font-size: 6vw;
+    color: white;
+    padding-top: 30px;
+}
+
+.container_login {
+    background: white;
+    padding: 20px;
+    width: 40vw;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px #000;
+    display: grid;
+    gap: 20px;
+    place-items: center;
+}
+
+.titulos {
+    text-align: center;
+}
+
+.titulo {
+    color: black;
+    font-size: 4vw;
+}
+
+.suport {
+    font-size: 1.5vw;
+}
+
+.inputs_login {
+    display: grid;
+    gap: 20px;
+    width: 80%;
+}
+
+.input_group {
+    position: relative;
+}
+
+.input_text {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    padding-left: 8px;
+    border-radius: 6px;
+    border: none;
+    background-color: #197891;
+    color: white;
+    outline: none;
+}
+
+.input_group span {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    font-size: 1vw;
+    color: white;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.input_text:focus ~ span,
+.input_text:valid ~ span {
+    transform: translateY(-24px);
+    font-size: 14px;
+    color: black;
+    filter: drop-shadow(2px 2px 4px #000);
+}
+
+.botoes_login {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.btn_cadastrar {
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn_entrar {
+    font-size: 22px;
+    color: white;
+    background-color: #197891;
+    border-radius: 10px;
+    width: 40%;
+    height: 40px;
+    border: 0px;
+    box-shadow: -4px 4px 8px 4px rgba(0, 0, 0, 0.787);
+    cursor: pointer;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid white;
+}
+
+.titulo_footer,
+.copy_footer {
+    color: white;
+    font-size: 1vw;
+}
+
+.titulo_footer a {
+    color: #3c3cf8;
+}
+
+/* Responsivo */
+@media screen and (max-width: 768px) {
+    .container_login {
+        width: 80vw;
+    }
+
+    .titulo {
+        font-size: 8vw;
+    }
+
+    .suport {
+        font-size: 4vw;
+    }
+
+    .input_text {
+        font-size: 18px;
+        height: 35px;
+    }
+
+    .input_group span {
+        font-size: 4vw;.btn_cadastrar {
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+            line-height: 30px;
+        }
+        .btn_cadastrar:hover {
+            background-color: #146778;
+        }
+        
+    }
+
+    .btn_entrar {
+        width: 60%;
+        font-size: 20px;
+    }
+
+    .titulo_footer,
+    .copy_footer {
+        font-size: 3vw;
+    }
+}

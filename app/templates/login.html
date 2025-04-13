@@ -1,18 +1,61 @@
-<!-- app/blueprints/auth/templates/auth/login.html -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <title>Gestor</title>
 </head>
 <body>
-  <h1>Login</h1>
-  <form method="post" action="{{url_for('auth.login')}}">
-    <label>Email:</label><br>
-    <input type="email" name="email"><br><br>
-    <label>Senha:</label><br>
-    <input type="password" name="pwd"><br><br>
-    <button type="submit">Entrar</button>
-  </form>
+    <header class="titles">
+        <p>Desenvolvimento</p>
+    </header>
+
+    <main>
+        <div class="container_login">
+            <div class="titulos">
+                <span class="titulo">Login</span> <br>
+                <span class="suport">
+                    <a href="https://wa.me/5571991320977" target="_blank">Suporte</a>
+                </span>
+            </div>
+
+            <form action="{{url_for('auth.login')}}" method="post" class="inputs_login">
+              <div class="input_group">
+                  <input class="input_text" type="text" name="email" value="{{usuario}}" minlength="1" autocomplete="on" required>
+                  <span>Email:</span>
+              </div>
+          
+              <div class="input_group">
+                  <input class="input_text" type="password" name="pwd" minlength="1" autocomplete="off" required>
+                  <span>Senha:</span>
+              </div>
+          
+              <div class="botoes_login">
+                  <button class="btn_entrar" type="submit">Entrar</button>
+                  <a href="/cadastrar" class="btn_entrar btn_cadastrar">Cadastrar</a>
+              </div>
+          </form>
+
+           
+    </main>
+
+    <footer>
+        <div class="titulo_footer">
+            Desenvolvido por <a href="https://wa.me/5571991320977" target="_blank">Astro Code</a>
+        </div>
+        <div class="copy_footer">© Astro Code 2025 - Todos os direitos reservados</div>
+    </footer>
+
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <script>
+      {%for msg in messages%}
+        alert("{{ msg }}");
+      {%endfor%}
+    </script>
+  {%endif %}
+{% endwith %}
 </body>
 </html>
