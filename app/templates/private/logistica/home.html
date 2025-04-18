@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="/static/css/logistica/home.css">
+</head>
+<body>
+
+    <h1>{{current_user.is}}</h1>
+
+    <div class="container_geral">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Estoque</a></li>
+                    <li><a href="#">Câmara Fria</a></li>
+                    <li><a href='{{url_for("global.usuarios")}}'>Usuários</a></li>
+                    <li><a href="#">Rotas</a></li>
+                    <li><a href="#">Check-List</a></li>
+                    <li><a href={{url_for("auth.logout")}}>Sair</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="conteudo_principal">
+            <section class="carrossel">
+                <div class="carrossel_box">Carrossel (em breve)</div>
+            </section>
+
+            <section class="area_inferior">
+                <div class="placeholder">Ainda não decidi</div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

@@ -5,7 +5,7 @@ from flask import Flask, render_template, redirect, url_for, request, session
 from flask_login import current_user, logout_user
 
 from .extensions import db, migrate, login_manager
-from .models import users  # Importação dos models para o Flask-Migrate reconhecer
+from .models import users, veiculos  # Importação dos models para o Flask-Migrate reconhecer
 from .blueprints import register_blueprints
 
 
@@ -24,7 +24,7 @@ def creat_app():
     migrate.init_app(app, db)
 
     with app.app_context():
-            db.create_all()  # Criando as atabelas
+        db.create_all()  # Criando as atabelas
 
     #Registra o blue print da aplicação
     register_blueprints(app)
@@ -33,13 +33,22 @@ def creat_app():
     #Verificando se está logado na rota raiz e redirecionando
     @app.route('/')
     def index():
+        
         if current_user.is_authenticated:
-            return redirect(url_for('{current_user.setor}.home'))
+            return redirect(url_for('{current_user.perfil.setor}.home'))
         else: 
             return redirect(url_for('login'))
     #login page
     @app.route('/login', methods=['GET'])
     def login():
+        
+        """perfil = users.perfil(nome='Davi', sobre_nome='Ferreira', tell='71993496165', setor='logistica', cargo='gerente')
+        db.session.add(perfil)
+        db.session.commit()
+        usuario = users.users(email='daviragnar226@gmail.com', pwd='123', perfil_id=perfil.id)
+        db.session.add(usuario)
+        db.session.commit()"""
+        
         logout_user()
         return render_template('login.html')
     #Rota de cadastro
